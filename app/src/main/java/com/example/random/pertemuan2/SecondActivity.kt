@@ -30,7 +30,7 @@ class SecondActivity : AppCompatActivity() {
             val nama = inputNama.text
             Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
 
-            Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit Cihuuyyy $nama", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Anda telah melakukan klik pada  Submit Cihuuyyy $nama", Toast.LENGTH_SHORT).show()
         }
     }
 }
