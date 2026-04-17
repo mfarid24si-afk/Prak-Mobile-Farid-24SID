@@ -25,7 +25,15 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, FourthActivity::class.java)
             startActivity(intent)
+
+            /*tambahkan bagian berikut*/
+            intent.putExtra("nama", "Politeknik Caltex Riau")
+            intent.putExtra("asal", "Rumbai")
+            intent.putExtra("usia", 25)
+
+            startActivity(intent)
         }
+
     }
 
 }
