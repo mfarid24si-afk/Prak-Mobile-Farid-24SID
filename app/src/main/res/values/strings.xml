@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">random</string>
-    <string name="judul" >Verifikasi login</string>
-    <string name="judul_baru" >Kode Berhasil Dikirim</string>
-    <string name="judul_2" >Silahkan Perikasa Nomor Anda</string>
+    <string name="judul">Verifikasi login</string>
+    <string name="judul_baru">Kode Berhasil Dikirim</string>
+    <string name="judul_2">Silahkan Perikasa Nomor Anda</string>
 </resources>

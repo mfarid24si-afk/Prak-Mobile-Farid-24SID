@@ -4,7 +4,7 @@ fun main(){
     println("Hai rekan-rekan...")
     println("Selamat datang di bahasa pemrograman kotlin")
 
-    println("=============")
+//    println("=============")
 
     var angka = 15
     println("Hasil dasri 15 + 10 = ${angka + 10}")
