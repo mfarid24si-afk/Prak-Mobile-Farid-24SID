@@ -3,7 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
     android:background="#FFFFFF">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        app:subtitleTextColor="@android:color/white" />
+
 
     <LinearLayout
         android:id="@+id/headerContainer"
@@ -11,50 +21,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#232F3E"
-            android:gravity="center_vertical"
-            android:padding="10dp">
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:hint="Search Amazon.in"
-                android:paddingLeft="15dp"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:src="@android:drawable/ic_menu_agenda"
-                app:tint="#FFFFFF" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="#37475A"
-            android:gravity="center_vertical"
-            android:paddingLeft="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Deliver to User - City 123456"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp" />
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/headerContainer"
+        android:layout_width="401dp"
+        android:layout_height="306dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="130dp"
         android:orientation="vertical"
         android:padding="20dp">
 
@@ -75,6 +50,21 @@
             android:text="Name"
             android:textColor="#111111"
             android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#37475A"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deliver to User - City 123456"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/inputNama"
@@ -101,6 +91,7 @@
             android:text="By continuing, you agree to Amazon's Conditions of Use and Privacy Notice."
             android:textColor="#555555"
             android:textSize="12sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -133,6 +124,37 @@
             android:layout_weight="1"
             android:padding="15dp"
             android:src="@android:drawable/ic_input_add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="12dp"
+        android:background="#232F3E"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:hint="Search Amazon.in"
+            android:paddingLeft="15dp"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            app:tint="#FFFFFF" />
     </LinearLayout>
 
 </RelativeLayout>

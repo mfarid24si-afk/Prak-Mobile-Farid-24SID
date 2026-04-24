@@ -15,32 +15,34 @@ class ThirdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
-        // Gunakan binding sepenuhnya, hapus findViewById manual
+        // 1. Inisialisasi binding di awal
         binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 2. Setup tampilan Edge-to-Edge
+        enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // 3. Logika klik tombol submit
         binding.btnSubmit.setOnClickListener {
-            val nama = binding.inputPhone.text.toString()
+            // Ambil teks dari input (pastikan ID inputPhone sudah benar untuk mengambil Nama)
+            val nama = binding.inputPhone.text.toString().trim()
 
             if (nama.isNotEmpty()) {
                 Toast.makeText(this, "Berhasil Submit: $nama", Toast.LENGTH_SHORT).show()
 
-                // Membuat intent untuk pindah halaman
-                val intent = Intent(this, ThirdResultActivity::class.java)
-
-                // Menitipkan data ke halaman selanjutnya (key, value)
-                intent.putExtra("EXTRA_NAMA", nama)
-
+                // Berpindah ke ThirdResultActivity dengan membawa data
+                val intent = Intent(this, ThirdResultActivity::class.java).apply {
+                    putExtra("EXTRA_NAMA", nama)
+                }
                 startActivity(intent)
             } else {
+                // Tampilkan pesan jika input kosong
                 Toast.makeText(this, "Silahkan isi data dulu!", Toast.LENGTH_SHORT).show()
             }
         }
