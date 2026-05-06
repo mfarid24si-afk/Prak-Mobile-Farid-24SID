@@ -3,6 +3,7 @@ package com.example.random
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -32,6 +33,20 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("usia", 25)
 
             startActivity(intent)
+        }
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin logout?")
+                .setPositiveButton("Ya") { _, _ ->
+                    // Kembali ke AuthActivity
+                    val intent = Intent(this, AuthActivity::class.java)
+                    startActivity(intent)
+                    // Menutup MainActivity sesuai instruksi finish()
+                    finish()
+                }
+                .setNegativeButton("Tidak", null)
+                .show()
         }
 
     }
