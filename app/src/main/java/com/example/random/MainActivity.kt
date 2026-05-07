@@ -38,16 +38,26 @@ class MainActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin logout?")
-                .setPositiveButton("Ya") { _, _ ->
-                    // Kembali ke AuthActivity
+                .setPositiveButton("Ya") { dialog, _ -> // Tambahkan variabel dialog di sini
+
+                    // --- TAMBAHKAN KODE INI UNTUK HAPUS DATA ---
+                    val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+
+                    // Ganti .clear() dengan ini jika hanya ingin menghapus status login
+                    editor.remove("isLogin")
+
+                    editor.apply()
+
                     val intent = Intent(this, AuthActivity::class.java)
                     startActivity(intent)
-                    // Menutup MainActivity sesuai instruksi finish()
                     finish()
+                    dialog.dismiss()
                 }
                 .setNegativeButton("Tidak", null)
                 .show()
         }
+
 
     }
 

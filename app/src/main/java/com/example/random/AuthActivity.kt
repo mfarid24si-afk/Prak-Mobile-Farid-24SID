@@ -15,14 +15,18 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            val username = binding.etUsername.text.toString()
-            val password = binding.etPassword.text.toString()
+            val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+            val isLogin = sharedPref.getBoolean("isLogin", false)
+            val editor = sharedPref.edit()
+            editor.putBoolean("isLogin", true)
+            val username = "numpy"
+            editor.putString("1234",username)
+            editor.apply()
 
-            // Logika: Jika Username sama dengan Password
-            if (username == password && username.isNotEmpty()) {
+            if (isLogin){
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish() // Menutup AuthActivity agar tidak bisa di-back kembali ke login
+                finish()
             } else {
                 // Tampilkan AlertDialog jika salah sesuai perintah
                 AlertDialog.Builder(this)
