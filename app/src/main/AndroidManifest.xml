@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Random">
         <activity
-            android:name=".pertemuan_6.Login"
-            android:exported="false" />
-        <activity
             android:name=".pertemuan_5.WebViewActivity"
             android:exported="false" />
         <activity
@@ -33,9 +30,12 @@
             android:exported="false" />
         <activity
             android:name=".pertemuan_5.FifthActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".AuthActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
