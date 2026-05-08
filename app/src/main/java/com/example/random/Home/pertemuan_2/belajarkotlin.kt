@@ -1,4 +1,4 @@
-package com.example.random.pertemuan2
+package com.example.random.Home.pertemuan_2
 
 fun main(){
     println("Hai rekan-rekan...")

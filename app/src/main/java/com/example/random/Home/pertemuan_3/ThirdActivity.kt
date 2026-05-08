@@ -1,4 +1,4 @@
-package com.example.random.pertemuan_3
+package com.example.random.Home.pertemuan_3
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.random.R
 import com.example.random.databinding.ActivityThirdBinding
 
 class ThirdActivity : AppCompatActivity() {

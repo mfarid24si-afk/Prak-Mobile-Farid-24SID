@@ -1,35 +1,40 @@
-package com.example.random
+package com.example.random.Home
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.random.databinding.ActivityMainBinding
+import com.example.random.AuthActivity
 import com.example.random.Home.pertemuan_4.FourthActivity
 import com.example.random.Home.pertemuan_7.SeventhActivity
+import com.example.random.R
+import com.example.random.databinding.FragmentHomeBinding
+class HomeFragment : Fragment() {
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
         binding.button7.setOnClickListener {
-            val intent = Intent(this, SeventhActivity::class.java)
+            val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
         }
         binding.button1.setOnClickListener {
 
-            val intent = Intent(this, FourthActivity::class.java)
+            val intent = Intent(requireContext(), FourthActivity::class.java)
             startActivity(intent)
 
             /*tambahkan bagian berikut*/
@@ -40,13 +45,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnLogout.setOnClickListener {
-            AlertDialog.Builder(this)
+            AlertDialog.Builder(requireContext())
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin logout?")
                 .setPositiveButton("Ya") { dialog, _ -> // Tambahkan variabel dialog di sini
 
                     // --- TAMBAHKAN KODE INI UNTUK HAPUS DATA ---
-                    val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
                     val editor = sharedPref.edit()
 
                     // Ganti .clear() dengan ini jika hanya ingin menghapus status login
@@ -54,16 +58,13 @@ class MainActivity : AppCompatActivity() {
 
                     editor.apply()
 
-                    val intent = Intent(this, AuthActivity::class.java)
+                    val intent = Intent(requireContext(), AuthActivity::class.java)
                     startActivity(intent)
-                    finish()
+                    requireActivity().finish()
                     dialog.dismiss()
                 }
                 .setNegativeButton("Tidak", null)
                 .show()
         }
-
-
     }
-
 }

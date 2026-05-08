@@ -1,4 +1,4 @@
-package com.example.random.pertemuan_5
+package com.example.random.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle

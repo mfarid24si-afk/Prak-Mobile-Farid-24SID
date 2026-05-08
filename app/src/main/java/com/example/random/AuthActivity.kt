@@ -30,7 +30,7 @@
                     editor.apply()
 
                     // 3. Pindah ke MainActivity
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, BaseActivity::class.java)
                     startActivity(intent)
                     finish()
 
