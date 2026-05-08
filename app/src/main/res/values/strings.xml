@@ -3,4 +3,6 @@
     <string name="judul">Verifikasi login</string>
     <string name="judul_baru">Kode Berhasil Dikirim</string>
     <string name="judul_2">Silahkan Perikasa Nomor Anda</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

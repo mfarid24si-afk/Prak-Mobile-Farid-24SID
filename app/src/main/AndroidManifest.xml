@@ -33,7 +33,10 @@
             android:exported="false" />
         <activity
             android:name=".AuthActivity"
-            android:exported="false"/>
+            android:exported="false" />
+        <activity
+            android:name=".pertemuan_7.SeventhActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
