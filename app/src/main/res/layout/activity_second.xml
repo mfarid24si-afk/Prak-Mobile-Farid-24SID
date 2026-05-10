@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:background="#FFFFFF">
 
@@ -11,8 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways"
         app:titleTextColor="@android:color/white"
-        app:subtitleTextColor="@android:color/white" />
+        tools:layout_editor_absoluteY="0dp" />
 
 
     <LinearLayout

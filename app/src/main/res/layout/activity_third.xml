@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/amogus"
+    android:background="@drawable/bg"
     tools:context=".Home.pertemuan_3.ThirdActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -13,8 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways"
         app:titleTextColor="@android:color/white"
-        app:subtitleTextColor="@android:color/white" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/btnSubmit"
@@ -35,8 +38,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:textColor="@color/black"
         android:ems="10"
-        android:inputType="phone"
+        android:inputType="text"
+        android:hint="Masukkan Nama/Nomor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,8 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways"
         app:titleTextColor="@android:color/white"
-        app:subtitleTextColor="@android:color/white" />
+        tools:layout_editor_absoluteY="0dp" />
 
 
     <Button

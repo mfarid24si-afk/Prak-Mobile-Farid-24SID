@@ -9,7 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.example.random.AuthActivity
+import com.example.random.Home.pertemuan_2.SecondActivity
+import com.example.random.Home.pertemuan_3.ThirdActivity
+import com.example.random.Home.pertemuan_3.ThirdResultActivity
 import com.example.random.Home.pertemuan_4.FourthActivity
+import com.example.random.Home.pertemuan_5.FifthActivity
 import com.example.random.Home.pertemuan_7.SeventhActivity
 import com.example.random.R
 import com.example.random.databinding.FragmentHomeBinding
@@ -28,14 +32,28 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
+
+        binding.button2.setOnClickListener {
+            val intent = Intent(requireContext(), SecondActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.button3.setOnClickListener {
+            val intent = Intent(requireContext(), ThirdActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.button5.setOnClickListener {
+            val intent = Intent(requireContext(), FifthActivity::class.java)
+            startActivity(intent)
+        }
         binding.button7.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
         }
-        binding.button1.setOnClickListener {
+        binding.button4.setOnClickListener {
 
             val intent = Intent(requireContext(), FourthActivity::class.java)
-            startActivity(intent)
 
             /*tambahkan bagian berikut*/
             intent.putExtra("nama", "Politeknik Caltex Riau")

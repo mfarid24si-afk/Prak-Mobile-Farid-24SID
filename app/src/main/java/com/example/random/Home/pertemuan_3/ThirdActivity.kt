@@ -2,11 +2,13 @@ package com.example.random.Home.pertemuan_3
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.random.R
 import com.example.random.databinding.ActivityThirdBinding
 
 class ThirdActivity : AppCompatActivity() {
@@ -18,6 +20,13 @@ class ThirdActivity : AppCompatActivity() {
         // 1. Inisialisasi binding di awal
         binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = "Pertemuan 3"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
 
         // 2. Setup tampilan Edge-to-Edge
         enableEdgeToEdge()
@@ -44,6 +53,23 @@ class ThirdActivity : AppCompatActivity() {
                 // Tampilkan pesan jika input kosong
                 Toast.makeText(this, "Silahkan isi data dulu!", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            R.id.action_search -> {
+                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.action_settings -> {
+                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
