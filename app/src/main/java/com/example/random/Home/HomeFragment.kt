@@ -15,6 +15,7 @@ import com.example.random.Home.pertemuan_3.ThirdResultActivity
 import com.example.random.Home.pertemuan_4.FourthActivity
 import com.example.random.Home.pertemuan_5.FifthActivity
 import com.example.random.Home.pertemuan_7.SeventhActivity
+import com.example.random.Home.pertemuan_9.NinithActivity
 import com.example.random.R
 import com.example.random.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
@@ -49,6 +50,10 @@ class HomeFragment : Fragment() {
         }
         binding.button7.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
+            startActivity(intent)
+        }
+        binding.button9.setOnClickListener {
+            val intent = Intent(requireContext(), NinithActivity::class.java)
             startActivity(intent)
         }
         binding.button4.setOnClickListener {
