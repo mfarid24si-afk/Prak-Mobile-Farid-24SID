@@ -40,39 +40,38 @@ class TenthActivity : AppCompatActivity() {
         // 3. Hubungkan TabLayout & ViewPager2 menggunakan Adapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
 
-//            when (position) {
-//                0 -> {
-//                    tab.text = "Tab A"
-//                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
-//                    val badge = tab.getOrCreateBadge()
-//                    badge.isVisible = true
-//                }
-//                1 -> {
-//                    tab.text = "Tab B"
-//                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
-//                    val badge = tab.getOrCreateBadge()
-//                    badge.isVisible = true
-//                    badge.number = 5
-//                }
-//                2 -> {
-//                    tab.text = "Tab C"
-//                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
-//                    val badge = tab.getOrCreateBadge()
-//                    badge.isVisible = true
-//                    badge.number = 5
-//                }
-//            }
-
-            TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-                when (position) {
-                    0 -> tab.text = "Tab A"
-                    1 -> tab.text = "Tab B"
-                    2 -> tab.text = "Produk" // Tambahkan ini
+            when (position) {
+                0 -> {
+                    tab.text = "Tab A"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
+                    val badge = tab.getOrCreateBadge()
+                    badge.isVisible = true
                 }
+                1 -> {
+                    tab.text = "Tab B"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
+                    val badge = tab.getOrCreateBadge()
+                    badge.isVisible = true
+                    badge.number = 5
+                }
+                2 -> {
+                    tab.text = "Produk"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_product)
+                    val badge = tab.getOrCreateBadge()
+                    badge.isVisible = true
+                    badge.number = 13
+                }
+            }
+
+//            TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+//                when (position) {
+//                    0 -> tab.text = "Tab A"
+//                    1 -> tab.text = "Tab B"
+//                    2 -> tab.text = "Produk" // Tambahkan ini
+//                }
             }.attach()
         }
     }
-}
 //    override fun onSupportNavigateUp(): Boolean {
 //        // Memanggil onBackPressed agar logika back stack dijalankan
 //        onBackPressedDispatcher.onBackPressed()
