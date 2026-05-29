@@ -41,7 +41,6 @@ class MessageFragment : Fragment() {
         val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
 
         binding.toolbar.title = "Message Options"
-        binding.toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
 
         // Setup Toolbar klik (Contoh: jika ada tombol back di toolbar)
         binding.toolbar.setNavigationOnClickListener {

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.example.random.AuthActivity
+import com.example.random.Home.pertemuan_10.TenthActivity
 import com.example.random.Home.pertemuan_2.SecondActivity
 import com.example.random.Home.pertemuan_3.ThirdActivity
 import com.example.random.Home.pertemuan_3.ThirdResultActivity
@@ -54,6 +55,10 @@ class HomeFragment : Fragment() {
         }
         binding.button9.setOnClickListener {
             val intent = Intent(requireContext(), NinithActivity::class.java)
+            startActivity(intent)
+        }
+        binding.button10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
         binding.button4.setOnClickListener {
