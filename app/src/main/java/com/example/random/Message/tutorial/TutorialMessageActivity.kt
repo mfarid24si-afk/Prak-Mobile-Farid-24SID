@@ -1,0 +1,33 @@
+package com.example.random.Message.tutorial
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.random.databinding.ActivityTutorialMessageBinding
+
+class TutorialMessageActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityTutorialMessageBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = ActivityTutorialMessageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // === MASUKKAN KODE VIEWPAGER DI SINI (DI DALAM ONCREATE) ===
+        val fragmentsList = listOf(Tutorial1Fragment(), Tutorial2Fragment(), Tutorial3Fragment())
+        val adapter = TutorialFragmentAdapter(activity = this, fragmentsList)
+        binding.tutorialMessageViewPager.adapter = adapter
+
+
+        binding.dotIndicator.attachTo(binding.tutorialMessageViewPager)
+    } // <-- Tanda kurung kurawal tutup onCreate HARUS DI SINI
+}

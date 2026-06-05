@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.random.AuthActivity
 import com.example.random.Home.pertemuan_10.TenthActivity
 import com.example.random.Home.pertemuan_2.SecondActivity
@@ -17,8 +20,13 @@ import com.example.random.Home.pertemuan_4.FourthActivity
 import com.example.random.Home.pertemuan_5.FifthActivity
 import com.example.random.Home.pertemuan_7.SeventhActivity
 import com.example.random.Home.pertemuan_9.NinithActivity
+import com.example.random.Home.photo.PhotoAdapter
 import com.example.random.R
+import com.example.random.data.api.CatFactApiClient
+import com.example.random.data.api.PhotoApiClient
 import com.example.random.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
+
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -38,6 +46,10 @@ class HomeFragment : Fragment() {
         binding.button2.setOnClickListener {
             val intent = Intent(requireContext(), SecondActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.btnRefresh.setOnClickListener {
+            loadCatFact()
         }
 
         binding.button3.setOnClickListener {
@@ -93,6 +105,40 @@ class HomeFragment : Fragment() {
                 }
                 .setNegativeButton("Tidak", null)
                 .show()
+        }
+        loadPhoto()
+    }
+
+    private fun loadCatFact() {
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+            }
+        }
+    }
+
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** List Tampil Vertical*/
+                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+                /** List Tampil Horizontal */
+                //binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                /** List Tampil Grid */
+                //binding.rvGallery.layoutManager = GridLayoutManager(requireContext(),2)
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

@@ -50,6 +50,9 @@
             android:name=".Home.pertemuan_7.SeventhActivity"
             android:exported="false" />
         <activity
+            android:name=".Message.tutorial.TutorialMessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>

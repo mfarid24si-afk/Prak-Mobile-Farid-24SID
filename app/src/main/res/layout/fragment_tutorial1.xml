@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent"
+    tools:context=".Message.tutorial.Tutorial1Fragment">
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="357dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="24dp"
+        android:text="Halaman Beranda dirancang sebagai pintu gerbang utama yang menyambut pengguna dengan tampilan visual dinamis dan navigasi yang intuitif. Di halaman ini, pengguna dapat langsung melihat ringkasan informasi penting seperti banner promosi terbaru, rekomendasi produk yang dipersonalisasi, serta tren yang sedang populer saat ini. Fungsi utamanya adalah memberikan kesan pertama yang kuat sekaligus mempermudah pengguna untuk mengakses fitur-fitur utama aplikasi hanya dalam satu ketukan."
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:layout_marginTop="48dp"
+        android:text="HOME PAGE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
