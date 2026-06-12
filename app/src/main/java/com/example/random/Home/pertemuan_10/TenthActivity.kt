@@ -71,10 +71,10 @@ class TenthActivity : AppCompatActivity() {
 //                }
             }.attach()
         }
+
+    override fun onSupportNavigateUp(): Boolean {
+        // Memanggil onBackPressed agar logika back stack dijalankan
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
-//    override fun onSupportNavigateUp(): Boolean {
-//        // Memanggil onBackPressed agar logika back stack dijalankan
-//        onBackPressedDispatcher.onBackPressed()
-//        return true
-//    }
-//}
+}
