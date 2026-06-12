@@ -9,7 +9,7 @@ import com.example.random.data.entity.NoteEntity
 
 @Database(
     entities = [NoteEntity::class], // tambahkan entitas baru di sini
-    version = 1
+    version = 2
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -25,7 +25,8 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build().also { INSTANCE = it }
+                ).fallbackToDestructiveMigration() // Tambahkan baris ini, jika sudah selesai maka hapus
+                    .build().also { INSTANCE = it }
             }
         }
     }
