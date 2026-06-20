@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.random.AuthActivity
 import com.example.random.Home.pertemuan_10.TenthActivity
+import com.example.random.Home.pertemuan_13.ThirteenthActivity
 import com.example.random.Home.pertemuan_2.SecondActivity
 import com.example.random.Home.pertemuan_3.ThirdActivity
 import com.example.random.Home.pertemuan_3.ThirdResultActivity
@@ -67,6 +68,10 @@ class HomeFragment : Fragment() {
         }
         binding.button9.setOnClickListener {
             val intent = Intent(requireContext(), NinithActivity::class.java)
+            startActivity(intent)
+        }
+        binding.button13.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
             startActivity(intent)
         }
         binding.button10.setOnClickListener {
