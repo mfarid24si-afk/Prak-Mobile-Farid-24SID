@@ -46,6 +46,7 @@ class ThirteenthActivity : AppCompatActivity() {
                     badge.isVisible = true
                 }
                 1 -> {
+
                     tab.text = "Scan"
                     tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_scan)
                     val badge = tab.getOrCreateBadge()
