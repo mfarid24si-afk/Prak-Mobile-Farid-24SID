@@ -16,6 +16,7 @@ import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.provider.MediaStore
 import androidx.core.content.ContextCompat
+import com.example.random.utils.PermissionHelper
 
 class TabCaptureFragment : Fragment() {
     private var _binding: FragmentTabCaptureBinding? = null
@@ -54,26 +55,18 @@ class TabCaptureFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnCapture.setOnClickListener {
-            if (hasCameraPermission()) {
-                openCamera()
+            if (!PermissionHelper.hasPermission(
+                    requireActivity(),
+                    Manifest.permission.CAMERA)) {
+                PermissionHelper.requestPermission(
+                    permissionLauncher,
+                    Manifest.permission.CAMERA
+                )
             } else {
-                permissionLauncher.launch(Manifest.permission.CAMERA)
+                openCamera()
             }
         }
-    }
-
-    // Hapus binding saat view dihancurkan untuk mencegah memory leak
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }
+        }
 
     private fun openCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -93,5 +86,12 @@ class TabCaptureFragment : Fragment() {
         }
         return requireContext().contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
             ?: throw RuntimeException("Gagal membuat URI MediaStore")
+    }
+
+
+    // Hapus binding saat view dihancurkan untuk mencegah memory leak
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

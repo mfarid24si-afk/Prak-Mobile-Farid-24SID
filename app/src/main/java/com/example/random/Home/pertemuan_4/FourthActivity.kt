@@ -9,10 +9,13 @@
     import androidx.appcompat.app.AppCompatActivity
     import androidx.core.view.ViewCompat
     import androidx.core.view.WindowInsetsCompat
+    import com.example.random.Home.pertemuan_3.ThirdResultActivity
+    import com.example.random.Home.pertemuan_9.NinithActivity
     import com.example.random.MainActivity
     import com.example.random.R
     import com.example.random.databinding.ActivityFourthBinding
     import com.example.random.databinding.ActivityMainBinding
+    import com.example.random.utils.NotificationHelper
     import com.google.android.material.dialog.MaterialAlertDialogBuilder
     import com.google.android.material.snackbar.Snackbar
 
@@ -55,11 +58,17 @@
             }
 
             binding.btnShowSnackbar.setOnClickListener {
-                Snackbar.make(binding.root, "Ini adalah Snackbar", Snackbar.LENGTH_SHORT)
-                    .setAction("Tutup") {
-                        Log.e("Info Snackbar", "Snackbar ditutup")
-                    }
-                    .show()
+                val noTujuan = binding.materialCardView
+                val intent = Intent(this, NinithActivity::class.java)
+
+                //startActivity(intent)
+
+                NotificationHelper.showNotification(
+                    this, //Jika panggil di fragment maka requireContext()
+                    "Pesanan Anda",
+                    "Halo $noTujuan, ini snackbar",
+                    intent
+                )
             }
 
             binding.btnShowAlertDialog.setOnClickListener {

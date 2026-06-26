@@ -22,6 +22,7 @@ import com.google.mlkit.vision.common.InputImage
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import android.Manifest
+import com.example.random.utils.PermissionHelper
 
 class TabScanFragment : Fragment() {
     private var _binding: FragmentTabScanBinding? = null
@@ -61,26 +62,16 @@ class TabScanFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        if (hasCameraPermission()) {
-            startCamera()
+        if (!PermissionHelper.hasPermission(
+                requireActivity(),
+                Manifest.permission.CAMERA)) {
+            PermissionHelper.requestPermission(
+                permissionLauncher,
+                Manifest.permission.CAMERA
+            )
         } else {
-            permissionLauncher.launch(Manifest.permission.CAMERA)
+            startCamera()
         }
-    }
-
-    // Hapus binding & matikan scanner saat view dihancurkan untuk mencegah memory leak
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        scanner?.close()
-        cameraExecutor.shutdown()
-    }
-
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
     }
 
     @androidx.annotation.OptIn(androidx.camera.core.ExperimentalGetImage::class)
@@ -129,5 +120,14 @@ class TabScanFragment : Fragment() {
                 Log.e("TabScan", "Gagal mulai kamera", e)
             }
         }, ContextCompat.getMainExecutor(requireContext()))
+    }
+
+
+    // Hapus binding & matikan scanner saat view dihancurkan untuk mencegah memory leak
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+        scanner?.close()
+        cameraExecutor.shutdown()
     }
 }

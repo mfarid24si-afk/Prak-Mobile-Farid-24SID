@@ -1,17 +1,20 @@
 package com.example.random.Home.pertemuan_9
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.random.Home.pertemuan_4.FourthActivity
 import com.example.random.Home.pertemuan_7.DuaFragment
 import com.example.random.Home.pertemuan_7.SatuFragment
 import com.example.random.Home.pertemuan_7.TigaFragment
 import com.example.random.R
 import com.example.random.databinding.ActivityNinithBinding
 import com.example.random.databinding.ActivitySeventhBinding
+import com.example.random.utils.NotificationHelper
 import com.google.android.material.chip.Chip
 
 class NinithActivity : AppCompatActivity() {
@@ -39,6 +42,19 @@ class NinithActivity : AppCompatActivity() {
                 val chip = group.findViewById<Chip>(selectedChipId)
                 Toast.makeText(this, "Filter: ${chip.text}", Toast.LENGTH_SHORT).show()
                 // Lakukan logika filter di sini
+            }
+            binding.btnLogin.setOnClickListener {
+                val noTujuan = binding.textInputLayout
+                val intent = Intent(this, FourthActivity::class.java)
+
+                //startActivity(intent)
+
+                NotificationHelper.showNotification(
+                    this, //Jika panggil di fragment maka requireContext()
+                    "Pesanan Anda",
+                    "Halo $noTujuan, ini snackbar",
+                    intent
+                )
             }
         }
     }
